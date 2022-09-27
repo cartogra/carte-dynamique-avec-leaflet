@@ -9,9 +9,14 @@
     <title>Document</title>
     <style>
 
-        #mapid { height: 500px;
-                 width: 500px;
-              }
+        #mapid {
+             height: 500px;
+            width: 800px;
+        }
+        .my-label{
+    color: black;
+    background-color: rgb(180, 194, 206);
+}
     </style>
 </head>
 
@@ -26,6 +31,20 @@
                 maxZoom: 19,
                 attribution: '© OpenStreetMap'
             }).addTo(map);
+            var circle = L.circle  ([5.447804, 10.067541], {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: 500
+            }).addTo(map);
+         circle.bindTooltip("universite de dschang", {permanent: true, className: "my-label", offset: [0, 0] });
+            
+           
+            var marker = L.marker([5.440157, 10.051447]).addTo(map).bindPopup('ici c\'est le centre');
+            marker.bindTooltip("immeuble Horizon jeune", {permanent: true, className: "my-label", offset: [0, 0] });
+            
+                 
+
         }
     </script>
 
